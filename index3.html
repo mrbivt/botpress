@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Botpress Full-Width in a DIV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: white;
+        background-color: #191919;
+        font-family: Arial, sans-serif;
+      }
+
+      .center-div {
+        width: 50vw;
+        height: 80vh;
+        background-color: #191919;
+        border: 2px solid white; /* Khung viền màu trắng */
+        border-radius: 15px;
+        padding: 5px;
+        box-sizing: border-box;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .center-div {
+          width: 80vw;
+        }
+      }
+
+      @media only screen and (max-width: 1024px) {
+        .center-div {
+          width: 80vw;
+        }
+      }
+
+      #bpFull { 
+        width: 100%;
+        height: 100%;
+        border: none;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header></header>
+    <div>
+      <div>
+        <div class="center-div">
+          <iframe id="bpFull" srcdoc="<!DOCTYPE html><html><body>
+            <script src='https://cdn.botpress.cloud/webchat/v2.2/inject.js'></script>
+            <script src='https://files.bpcontent.cloud/2024/10/11/05/20241011053009-K9AVB09T.js'></script>
+            <script>
+              // Tự động mở chatbot và gửi sự kiện bắt đầu cuộc trò chuyện
+              window.botpress.on('webchat:ready', (conversationId) => {
+                window.botpress.open();
+                window.botpress.webchat.sendEvent({
+                  type: 'proactive-trigger',
+                  payload: { text: 'Xin chào!' }, // Bạn có thể chỉnh sửa nội dung này
+                });
+              });
+            </script>
+            <style>
+              @media (min-width:768px) {
+                .bpOpen { width: 100%; height: 100%; right: 0; bottom: 0; max-height: 100%; overflow: auto; -webkit-overflow-scrolling: touch; }
+              }
+            </style></body></html>"></iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
