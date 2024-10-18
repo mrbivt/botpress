@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Botpress Full-Width in a DIV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            background-color: #191919;
+            font-family: monospace, sans-serif;
+        }
+
+        .center-div {
+            width: 50vw;
+            height: 80vh;
+            background-color: #191919;
+            border: 2px solid white;
+            border-radius: 15px;
+            padding: 5px;
+            box-sizing: border-box;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .start-message {
+                top: 50px;
+            }
+        }
+
+        #bpFull {
+            width: 100%;
+            height: 100%;
+            border: none;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2000;
+        }
+
+        .chatbot-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin: 0;
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            z-index: 1001;
+            text-align: center;
+        }
+
+        .start-message {
+            font-size: 16px;
+            color: white;
+            position: absolute;
+            top: 100px;
+            width: 100%;
+            z-index: 10;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div>
+        <div>
+            <div class="center-div">
+                <div class="chatbot-title">Simple Fit Coaching's Chatbot</div>
+                <div class="start-message">Bấm vào nút bên dưới để bắt đầu</div>
+                <iframe id="bpFull" src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hàm xóa các phần tử tiêu đề và thông báo
+        function removeElements() {
+            const title = document.querySelector('.chatbot-title');
+            const message = document.querySelector('.start-message');
+
+            if (title) title.remove(); // Xóa tiêu đề
+            if (message) message.remove(); // Xóa thông báo
+        }
+
+        // Đợi iframe tải xong rồi thực hiện xóa các phần tử
+        window.onload = function() {
+            removeElements();
+        };
+    </script>
+</body>
+
+</html>
