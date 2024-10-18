@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Botpress Full-Width in a DIV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            background-color: #191919;
+            font-family: monospace, sans-serif;
+        }
+
+        .center-div {
+            width: 50vw;
+            height: 80vh;
+            background-color: #191919;
+            border: 2px solid white; /* Khung viền màu trắng */
+            border-radius: 15px;
+            padding: 5px;
+            box-sizing: border-box;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative; /* Thêm vị trí tương đối cho căn chỉnh */
+        }
+
+       @media only screen and (max-width: 600px) {
+    .start-message {
+        top: 50px;
+    }
+} /* Đóng đúng khối @media */
+
+
+      #bpFull { 
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;  /* Đặt vị trí là tuyệt đối */
+    top: 0;              /* Đặt vị trí trên cùng */
+    left: 0;             /* Đặt vị trí bên trái */
+    z-index: 2000;      /* Đặt z-index cao để nó nằm trên các lớp khác */
+}
+
+
+        .chatbot-title {
+            font-size: 20px; /* Kích thước chữ */
+            font-weight: bold; /* Chữ đậm */
+            color: white; /* Màu chữ */
+            margin: 0; /* Không có khoảng cách dưới chữ tiêu đề */
+            position: absolute; /* Đặt vị trí là tuyệt đối */
+            top: 20px; /* Khoảng cách từ trên xuống */
+            width: 100%; /* Đảm bảo tiêu đề chiếm toàn bộ chiều rộng */
+            z-index: 1001; /* Đặt z-index cao để nằm trên cùng */
+        }
+
+        .start-message {
+            font-size: 16px; /* Kích thước chữ */
+            color: white; /* Màu chữ */
+            position: absolute; /* Đặt vị trí là tuyệt đối */
+            top: 100px; /* Khoảng cách từ trên xuống cho thông báo */
+            width: 100%; /* Đảm bảo thông báo chiếm toàn bộ chiều rộng */
+            z-index: 10; /* Đặt z-index cao để nằm trên cùng */
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div>
+        <div>
+            <div class="center-div">
+                <div class="chatbot-title">Simple Fit Coaching's Chatbot</div>
+                <div class="start-message">Bấm vào nút bên dưới để bắt đầu</div>
+                <iframe id="bpFull" srcdoc="<!DOCTYPE html><html><body>
+                
+                <script src='https://cdn.botpress.cloud/webchat/v2.2/inject.js'></script>
+<script src='https://files.bpcontent.cloud/2024/10/11/05/20241011053009-K9AVB09T.js'></script>
+
+<script>
+    // Hàm xóa các phần tử tiêu đề và thông báo
+    function removeElements() {
+        const title = document.querySelector('.chatbot-title');
+        const message = document.querySelector('.start-message');
+
+        if (title) title.remove(); // Xóa tiêu đề
+        if (message) message.remove(); // Xóa thông báo
+    }
+
+    // Xóa ngay khi các script được tải
+    removeElements();
+</script>
+
+
+
+
+
+
+                    <style>
+                        @media (min-width:768px) {
+                            .bpOpen { width: 100%; height: 100%; right: 0; bottom: 0; max-height: 100%; overflow: auto; -webkit-overflow-scrolling: touch; }
+                        }
+                    </style></body></html>"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
